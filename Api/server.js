@@ -15,7 +15,7 @@ const port = process.env.PORT || 4000;
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.json({ limit: '50mb' }));
 app.use(cors({ origin: '*', methods: '*' }));
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ROUTES
 app.use('/photos', photoRoutes);
@@ -23,16 +23,16 @@ app.use('/categories', categoryRoutes);
 app.use('/users', userRoutes);
 
 // ERROR HANDLING
-// app.use((err, req, res, next) => {
-//     if (err.name === 'MongoError' || err.name === 'ValidationError' || err.name === 'CastError') {
-//         err.status = 422;
-//     }
-//     if (req.get('accept').includes('json')) {
-//         res.status(err.status || 500).json({ message: err.message || 'Some error occurred.' });
-//     } else {
-//         res.status(err.status || 500).sendFile(path.join(__dirname, 'public', 'index.html'));
-//     }
-// });
+app.use((err, req, res, next) => {
+    if (err.name === 'MongoError' || err.name === 'ValidationError' || err.name === 'CastError') {
+        err.status = 422;
+    }
+    if (req.get('accept').includes('json')) {
+        res.status(err.status || 500).json({ message: err.message || 'Some error occurred.' });
+    } else {
+        res.status(err.status || 500).sendFile(path.join(__dirname, 'public', 'index.html'));
+    }
+});
 
 mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Successfully connected to database"))
