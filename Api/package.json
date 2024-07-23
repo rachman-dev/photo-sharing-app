@@ -13,8 +13,10 @@
     "app",
     "api"
   ],
-  "author": "Ahmed Semih Erkan",
-  "license": "MIT",
+  "author": "Rachman",
+  "engines": {
+    "node": "^20.15.1"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
