@@ -31,6 +31,9 @@ The Photo Sharing App is a full stack web application built using the MERN stack
 
    ```bash
    cd api
+   ```
+
+   ```bash
    npm i
    ```
 
@@ -52,6 +55,9 @@ The Photo Sharing App is a full stack web application built using the MERN stack
 
    ```bash
    cd frontend
+   ```
+
+   ```bash
    npm i
    ```
 
@@ -63,21 +69,20 @@ The Photo Sharing App is a full stack web application built using the MERN stack
 
 7. **Configure environment variables for the frontend**
    Create a `.env` file in the `frontend` directory and add the following:
+
    ```
    REACT_APP_BASE_URL=your_api_base_url
    REACT_APP_UPLOAD_PRESET=your_upload_preset
    REACT_APP_CLOUD_NAME=your_cloud_name
    ```
 
-## Usage
-
-1. **Start the frontend**
+8. **Start the frontend**
 
    ```bash
    npm start
    ```
 
-2. **Access the application**
+9. **Access the application**
    Open your browser and go to `http://localhost:your_frontend_port`.
 
 Make sure to replace placeholders like `your_mongodb_connection_string`, `your_preferred_port`, `your_api_base_url`, `your_upload_preset`, and `your_cloud_name` with your actual values.
